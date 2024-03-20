@@ -107,9 +107,7 @@
         "香港",
         "韩国",
         "日本",
-        "🇹🇼 剑仙App-台湾",
         "🇭🇰Wireguard-香港",
-        "VMESS",
         "线路-联通",
         "线路-电信",
         "线路-移动",
@@ -165,7 +163,7 @@
     {
       "type": "vless",
       "tag": "新加坡",
-      "server": "8.222.199.55",
+      "server": "sg.jianxian520.cloudns.org",
       "server_port": 443,
       "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
       "tls": {
@@ -209,7 +207,7 @@
     {
       "type": "vless",
       "tag": "日本",
-      "server": "132.145.117.33",
+      "server": "jp2053.jianxian520.cloudns.org",
       "server_port": 2053,
       "uuid": "44276ad3-97b2-4b18-93a5-0c6591d8b333",
       "tls": {
@@ -251,32 +249,9 @@
       "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
-      "tag": "VMESS",
-      "server": "cdn.jianxian520.cloudns.org",
-      "server_port": 443,
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "security": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "sub.15x.cloudns.org",
-        "insecure": true
-      },
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/kellie.makeup:443/linkvws",
-        "headers": {
-          "Host": "sub.15x.cloudns.org"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
       "type": "vless",
       "tag": "线路-联通",
-      "server": "172.67.118.107",
+      "server": "172.64.137.41",
       "server_port": 443,
       "uuid": "44276ad3-97b2-4b18-93a5-0c6591d8b333",
       "tls": {
@@ -298,7 +273,7 @@
     {
       "type": "vless",
       "tag": "线路-电信",
-      "server": "172.64.102.72",
+      "server": "173.245.49.191",
       "server_port": 443,
       "uuid": "f9d5de0c-992b-41f8-999b-8c3f800592bf",
       "tls": {
@@ -320,7 +295,7 @@
     {
       "type": "vless",
       "tag": "线路-移动",
-      "server": "172.64.82.117",
+      "server": "172.67.198.115",
       "server_port": 443,
       "uuid": "f9d5de0c-992b-41f8-999b-8c3f800592bf",
       "tls": {
@@ -386,7 +361,7 @@
     {
       "type": "vless",
       "tag": "优选域名3",
-      "server": "singapore.com",
+      "server": "log.bpminecraft.com",
       "server_port": 443,
       "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
       "tls": {
@@ -408,7 +383,7 @@
     {
       "type": "vless",
       "tag": "优选域名4",
-      "server": "www.hugedomains.com",
+      "server": "ip.sb",
       "server_port": 443,
       "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
       "tls": {
@@ -426,20 +401,6 @@
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
-    },
-    {
-      "type": "hysteria",
-      "tag": "🇹🇼 剑仙App-台湾",
-      "server": "www2.dtku48.xyz",
-      "server_port": 22334,
-      "up_mbps": 50,
-      "down_mbps": 100,
-      "auth_str": "dongtaiwang.com",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "alpn": "h3"
-      }
     },
     {
       "type": "wireguard",
