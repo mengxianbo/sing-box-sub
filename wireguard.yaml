@@ -1,0 +1,195 @@
+#  无私分享  (剑仙app)
+
+#  剑仙永久博客: biog.jianxian.cloudns.org
+
+#  QQ: 992460140
+
+#    //  剑仙App……适配 Clash.meta版  //
+
+#    🍎黑果波子🍎   //  不 - 要 - 乱 - 改  //
+
+#            // 避 - 免 - 失 - 效  //
+#……………………………………………………#
+port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+unified-delay: true
+global-client-fingerprint: chrome
+dns:
+  enable: true
+  listen: :53
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver: 
+    - 223.5.5.5
+    - 114.114.114.114
+    - 180.76.76.76
+    - 123.125.81.6
+    - 101.226.4.6
+    - 119.29.29.29
+    - 129.250.35.250
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    - https://sm2.doh.pub/dns-query
+    - https://alidns_ip/dns-query
+  fallback:
+    - tls://1.1.1.1/dns-query
+    - tls://dns.google
+    - https://dns.google/dns-query
+    - 199.85.126.10
+    - 64.6.64.6
+    - 8.26.56.2
+    - 84.200.69.80
+    - 192.178.38.136
+    - tls://dns11.quad9.net/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+proxies:
+- name: 剑仙app-   剑
+  type: wireguard
+  server: 162.159.195.153
+  port: 891
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   仙
+  type: wireguard
+  server: 162.159.195.248
+  port: 2408
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   忘
+  type: wireguard
+  server: 162.159.195.227
+  port: 939
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   誰
+  type: wireguard
+  server: 188.114.97.191
+  port: 864
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   記
+  type: wireguard
+  server: 162.159.195.222
+  port: 946
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   都
+  type: wireguard
+  server: 162.159.192.59
+  port: 894
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   舊
+  type: wireguard
+  server: 188.114.97.122
+  port: 854
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   不
+  type: wireguard
+  server: 188.114.98.252
+  port: 3581
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   爱
+  type: wireguard
+  server: 162.159.195.168
+  port: 4177
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   愛
+  type: wireguard
+  server: 188.114.97.217
+  port: 1010
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   😂
+  type: wireguard
+  server: 162.159.195.214
+  port: 7559
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false
+- name: 剑仙app-   🙄
+  type: wireguard
+  server: 162.159.192.125
+  port: 1010
+  ip: 172.16.0.2
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  private-key: qOh6xVKBO6hYSbcZWvmhFgkwx7FNOygVg3fkr2TzNFM=
+  udp: false                
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 剑仙app-   剑
+      - 剑仙app-   仙
+      - 剑仙app-   忘
+      - 剑仙app-   誰
+      - 剑仙app-   記
+      - 剑仙app-   都
+      - 剑仙app-   舊
+      - 剑仙app-   不
+      - 剑仙app-   爱
+      - 剑仙app-   愛
+      - 剑仙app-   😂
+      - 剑仙app-   🙄
+  - name: ♻️ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 剑仙app-   剑
+      - 剑仙app-   仙    
+      - 剑仙app-   忘
+      - 剑仙app-   誰
+      - 剑仙app-   記
+      - 剑仙app-   都
+      - 剑仙app-   舊
+      - 剑仙app-   不
+      - 剑仙app-   爱
+      - 剑仙app-   愛
+      - 剑仙app-   😂
+      - 剑仙app-   🙄
+  - name: 🎯 国内流量
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+rules:
+  - GEOIP,CN,🎯 国内流量
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🚀 节点选择
