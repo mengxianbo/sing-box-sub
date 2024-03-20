@@ -1,0 +1,504 @@
+//             剑仙App           //
+
+{
+  "log": {
+    "level": "debug",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxyDns",
+        "address": "https://8.8.8.8/dns-query",
+        "detour": "proxy"
+      },
+      {
+        "tag": "localDns",
+        "address": "https://223.5.5.5/dns-query",
+        "detour": "direct"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
+      },
+      {
+        "tag": "remote",
+        "address": "fakeip"
+      }
+    ],
+    "rules": [
+      {
+        "domain": "94.140.14.15·",
+        "server": "localDns"
+      },
+      {
+        "geosite": "category-ads-all",
+        "server": "block"
+      },
+      {
+        "outbound": "any",
+        "server": "localDns",
+        "disable_cache": true
+      },
+      {
+        "geosite": "cn",
+        "server": "localDns"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "localDns"
+      },
+      {
+        "clash_mode": "global",
+        "server": "proxyDns"
+      },
+      {
+        "geosite": "geolocation-!cn",
+        "server": "proxyDns"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "remote"
+      }
+    ],
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
+    "strategy": "ipv4_only",
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system",
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      },
+      "sniff": true
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "auto",
+        "direct",
+        "新加坡",
+        "香港",
+        "韩国",
+        "日本",
+        "🇹🇼 剑仙App-台湾",
+        "🇭🇰Wireguard-香港",
+        "VMESS",
+        "线路-联通",
+        "线路-电信",
+        "线路-移动",
+        "优选域名1",
+        "优选域名2",
+        "优选域名3",
+        "优选域名4"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "China",
+      "outbounds": [
+        "direct",
+        "proxy"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "AdBlock",
+      "outbounds": [
+        "block",
+        "direct"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "新加坡",
+        "香港",
+        "韩国",
+        "日本",
+        "优选域名1",
+        "优选域名2"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "1m0s",
+      "tolerance": 50
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "vless",
+      "tag": "新加坡",
+      "server": "8.222.199.55",
+      "server_port": 443,
+      "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.71x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.71x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "香港",
+      "server": "47.243.203.119",
+      "server_port": 443,
+      "uuid": "e00346a5-a704-4560-ab66-376d021e13b4",
+      "tls": {
+        "enabled": true,
+        "server_name": "node.61x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "node.61x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "日本",
+      "server": "132.145.117.33",
+      "server_port": 2053,
+      "uuid": "44276ad3-97b2-4b18-93a5-0c6591d8b333",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.31x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.31x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "韩国",
+      "server": "152.70.234.188",
+      "server_port": 443,
+      "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.71x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.71x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vmess",
+      "tag": "VMESS",
+      "server": "cdn.jianxian520.cloudns.org",
+      "server_port": 443,
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "security": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "sub.15x.cloudns.org",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/kellie.makeup:443/linkvws",
+        "headers": {
+          "Host": "sub.15x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "线路-联通",
+      "server": "172.67.118.107",
+      "server_port": 443,
+      "uuid": "44276ad3-97b2-4b18-93a5-0c6591d8b333",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.31x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.31x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "线路-电信",
+      "server": "172.64.102.72",
+      "server_port": 443,
+      "uuid": "f9d5de0c-992b-41f8-999b-8c3f800592bf",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.51x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.51x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "线路-移动",
+      "server": "172.64.82.117",
+      "server_port": 443,
+      "uuid": "f9d5de0c-992b-41f8-999b-8c3f800592bf",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.51x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.51x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "优选域名1",
+      "server": "russia.com",
+      "server_port": 443,
+      "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.71x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.71x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "优选域名2",
+      "server": "malaysia.com",
+      "server_port": 443,
+      "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.71x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.71x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "优选域名3",
+      "server": "singapore.com",
+      "server_port": 443,
+      "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.71x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.71x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "优选域名4",
+      "server": "www.hugedomains.com",
+      "server_port": 443,
+      "uuid": "01c84f44-42a9-47e1-bec8-97b1ef27eabf",
+      "tls": {
+        "enabled": true,
+        "server_name": "office.71x.cloudns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "office.71x.cloudns.org"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "hysteria",
+      "tag": "🇹🇼 剑仙App-台湾",
+      "server": "www2.dtku48.xyz",
+      "server_port": 22334,
+      "up_mbps": 50,
+      "down_mbps": 100,
+      "auth_str": "dongtaiwang.com",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "alpn": "h3"
+      }
+    },
+    {
+      "type": "wireguard",
+      "tag": "🇭🇰Wireguard-香港",
+      "local_address": "172.16.0.2/32",
+      "private_key": "oJ5w/O4mXqjJUb1d98Nkf48Cv/XGgWPdyq2RLApbwnE=",
+      "server": "188.114.99.210",
+      "server_port": 1387,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+    }
+  ],
+  "route": {
+    "geoip": {
+      "download_url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
+      "download_detour": "direct"
+    },
+    "geosite": {
+      "download_url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
+      "download_detour": "direct"
+    },
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "network": "udp",
+        "port": 443,
+        "outbound": "block"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "proxy"
+      },
+      {
+        "domain": [
+          "clash.razord.top",
+          "yacd.metacubex.one",
+          "yacd.haishan.me",
+          "d.metacubex.one"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "final": "proxy",
+    "auto_detect_interface": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "default_mode": "rule"
+    }
+  }
+}
